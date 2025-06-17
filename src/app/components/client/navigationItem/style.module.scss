@@ -1,0 +1,60 @@
+.wrapper {
+    padding: 0 16px;
+
+    color: #22303E;
+    font-size: 15px;
+    line-height: 42px;
+}
+
+.text {
+    position: relative;
+
+    display: inline-block;
+    width: 100%;
+    padding: 0 16px;
+
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.2s;
+
+    &::after {
+        content: "";
+
+        position: absolute;
+        top: 50%;
+        right: 10px;
+
+        width: 22px;
+        height: 22px;
+        margin-top: -11px;
+
+        background-image: url("/icons/arrow.svg");
+        transform-origin: center;
+        transition: 0.2s;
+    }
+
+    &.active {
+        color: #fff;
+
+        &::after {
+            filter: grayscale(1) brightness(1000%);
+            transform: rotate(90deg);
+        }
+
+        background-color: rgba(105, 108, 255, 1);
+
+        &:hover {
+            background-color: rgba(105, 108, 255, 0.8);
+        }
+    }
+
+    &:hover {
+        background-color: rgba(105, 108, 255, 0.8);
+
+        color: #fff;
+
+        &::after {
+            filter: grayscale(1) brightness(1000%);
+        }
+    }
+}

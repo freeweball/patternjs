@@ -1,0 +1,16 @@
+# указание на корневой файл
+root = true
+# Применить ко всем файлам
+[*]
+# Кодировка файлов
+charset = utf-8
+# Стиль перевода строки
+end_of_line = lf
+# Добавлять пустую строку в конце файла
+insert_final_newline = true
+# Использование пробелов для отступов
+indent_style = space
+# Размер отступа
+indent_size = 4
+# Удалять пробелы в конце строки
+trim_trailing_whitespace = true

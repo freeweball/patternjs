@@ -1,0 +1,47 @@
+.main {
+    min-height: 100%;
+    width: 260px;
+    flex-shrink: 0;
+
+    color: #22303e;
+    font-size: 15px;
+    line-height: 22px;
+
+    background-color: #fff;
+    box-shadow: 0px 2px 6px rgba(34, 48, 62, 0.08);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.category__title {
+    font-size: 26px;
+    line-height: 160%;
+    text-decoration: underline;
+}
+
+.pattern__title {
+    padding-left: 20px;
+    font-size: 18px;
+    line-height: 160%;
+}
+
+.pattern__link_active {
+    transition: 0.2s;
+    color: red;
+}
+
+.show {
+    overflow: hidden;
+    max-height: 100vh;
+    transition:
+        overflow,
+        max-height 0.2s ease-in-out;
+}
+
+.hide {
+    overflow: hidden;
+    max-height: 0;
+    transition:
+        overflow,
+        max-height 0.2s ease-out;
+}

@@ -1,0 +1,22 @@
+.title {
+    position: relative;
+    padding: 0 32px;
+
+    color: #e1e2ff;
+    font-size: 13px;
+    line-height: 38px;
+    text-transform: uppercase;
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        top: 50%;
+        left: 0;
+
+        width: 16px;
+        height: 1px;
+
+        background-color: #e1e2ff;
+    }
+}
