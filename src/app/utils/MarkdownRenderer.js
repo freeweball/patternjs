@@ -10,7 +10,7 @@ import {materialLight} from "react-syntax-highlighter/dist/cjs/styles/prism";
 import "github-markdown-css/github-markdown-light.css";
 
 // 4. Создаем компонент MarkdownRenderer, который принимает markdownContent как пропс
-export default function MarkdownRenderer({markdownContent}: {markdownContent: string}) {
+export default function MarkdownRenderer({markdownContent}) {
     return (
         <div className="markdown-body">
             {" "}

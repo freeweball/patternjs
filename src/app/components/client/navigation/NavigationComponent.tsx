@@ -19,7 +19,7 @@ export const NavigationComponent = () => {
     };
 
     const navigationItems = data.map(({category, id, patterns}) => {
-        const items = patterns.map(({category, name, id}) => (
+        const items = patterns.map(({category, name, id}: {category: any; name: any; id: any}) => (
             <li className="navigation-item__wrapper" key={id}>
                 <SimpleNavigationItem active={id === activeLinkId} path={category} text={name} id={id} cb={handleActiveLink} />
             </li>
