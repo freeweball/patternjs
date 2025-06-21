@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
     push:
         branches:
-            - main
+            - main # Деплой будет происходить, когда ты пушишь в ветку main
 
 jobs:
     build:
@@ -24,8 +24,9 @@ jobs:
             - name: Build and export
               run: npm run build # Статический экспорт теперь будет происходить автоматически
 
-            - name: Deploy to GitHub Pages
+            - name: Deploy to gh-pages
               uses: peaceiris/actions-gh-pages@v3
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   publish_dir: ./out # Папка для деплоя на GitHub Pages
+                  target_branch: gh-pages # Указываем ветку для деплоя (gh-pages)
