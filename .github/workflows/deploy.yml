@@ -27,6 +27,6 @@ jobs:
             - name: Deploy to gh-pages
               uses: peaceiris/actions-gh-pages@v3
               with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  github_token: ${{ secrets.ACTIONS_DEPLOY_KEY }} # Используем новый токен для деплоя
+                  publish_branch: gh-pages # Публикуем в ветку gh-pages
                   publish_dir: ./out # Папка для деплоя на GitHub Pages
-                  target_branch: gh-pages # Указываем ветку для деплоя (gh-pages)
