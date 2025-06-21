@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://frontend-content.ru
+
+# Sitemaps
+Sitemap: https://frontend-content.ru/sitemap.xml

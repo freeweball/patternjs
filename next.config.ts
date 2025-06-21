@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
     output: 'export',
     basePath: '',
     trailingSlash: true,
+    reactStrictMode: true,
   /* config options here */
 };
 
