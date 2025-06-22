@@ -27,8 +27,8 @@ export default async function PostPage(props: any) {
 
     return (
         <article>
-            <h1>{title}</h1>
-            <p>{date}</p>
+            {/* <h1>{title}</h1>
+            <p>{date}</p> */}
             <MarkdownRenderer markdownContent={content} />
         </article>
     );
