@@ -1,11 +1,3 @@
-.wrapper {
-    padding: 0 16px;
-
-    color: #22303E;
-    font-size: 15px;
-    line-height: 42px;
-}
-
 .text {
     position: relative;
 
@@ -13,8 +5,12 @@
     width: 100%;
     padding-left: 16px;
 
+    color: #22303e;
+    font-size: 15px;
+    line-height: 42px;
+
     &::before {
-        content: '';
+        content: "";
 
         position: absolute;
         top: 50%;
@@ -24,13 +20,12 @@
         height: 10px;
 
         border-radius: 50%;
-        // background-color: rgba(34, 48, 62, 0.4);
         background-color: rgba(105, 108, 255, 0.16);
         transform: translateY(-50%);
     }
 
     &::after {
-        content: '';
+        content: "";
 
         position: absolute;
         top: 50%;

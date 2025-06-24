@@ -20,8 +20,8 @@ export const NavigationItemComponent = (props: NavigationItemType) => {
     const textClass = classNames(styles["text"], isActive ? styles["active"] : styles[""]);
 
     return (
-        <div className={styles.wrapper} onClick={handleClick}>
-            <span className={textClass}>{props.text}</span>
+        <div className={textClass} onClick={handleClick}>
+            {props.text}
         </div>
     );
 };

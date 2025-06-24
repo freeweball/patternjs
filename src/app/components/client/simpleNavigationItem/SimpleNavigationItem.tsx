@@ -18,10 +18,8 @@ export const SimpleNavigationItem = (props: SimpleNavigationItemType) => {
     const url = LinkConfig[path];
 
     return (
-        <div className={styles.wrapper}>
-            <Link onClick={handleActive} className={textClass} href={url}>
-                {text}
-            </Link>
-        </div>
+        <Link onClick={handleActive} className={textClass} href={url}>
+            {text}
+        </Link>
     );
 };

@@ -13,21 +13,8 @@
     border-bottom-left-radius: 10px;
 }
 
-.category__title {
-    font-size: 26px;
-    line-height: 160%;
-    text-decoration: underline;
-}
-
-.pattern__title {
-    padding-left: 20px;
-    font-size: 18px;
-    line-height: 160%;
-}
-
-.pattern__link_active {
-    transition: 0.2s;
-    color: red;
+.item {
+    padding: 0 16px;
 }
 
 .show {

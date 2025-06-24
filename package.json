@@ -3,16 +3,11 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
+        "start": "next start",
         "dev": "next dev --turbopack",
         "build": "next build",
         "postbuild": "next-sitemap",
-        "export": "next export",
-        "deploy": "npm run build && git subtree push --prefix out origin gh-pages",
-        "start": "next start",
-        "lint": "next lint",
-        "docker:up": "docker-compose up",
-        "docker:build": "docker-compose build",
-        "docker:down": "docker-compose down"
+        "lint": "next lint"
     },
     "dependencies": {
         "github-markdown-css": "^5.8.1",
