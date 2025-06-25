@@ -3,8 +3,9 @@ import path from "path";
 import matter from "gray-matter";
 
 export interface PostMeta {
-    title: string;
-    date: string;
+    category?: string;
+    name?: string;
+    articleId?: string;
     slug: string;
 }
 
@@ -31,14 +32,15 @@ export function getAllPosts(): Array<PostMeta> {
         // const {data} = matter(fileContents);
         // const {title, date} = data;
         const {
-            data: {title, date},
+            data: {category, name, articleId},
         } = matter(fileContents);
 
         // Возвращаем только мета-данные и slug
         return {
             slug,
-            title,
-            date,
+            category,
+            name,
+            articleId,
         };
     });
 }
@@ -52,15 +54,10 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     // Разделяем мета-данные и контент
     // const {data, content} = matter(fileContents);
     // const {title, date} = data;
-    const {
-        data: {title, date},
-        content,
-    } = matter(fileContents);
+    const {content} = matter(fileContents);
 
     return {
         slug,
-        title,
-        date,
         content,
     };
 }

@@ -4,6 +4,7 @@ import "./globals.scss";
 import {NavigationComponent} from "./components/client/navigation/NavigationComponent";
 import {ContentComponent} from "./components/client/content/ContentComponent";
 import {getAllPosts} from "@/lib/articles";
+// import navigationData from "./components/client/navigation/navigationData";
 
 const roboto = Roboto({
     weight: ["400", "500", "700"],
@@ -18,6 +19,16 @@ export const metadata = {
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
+    const posts = getAllPosts();
+    const categories = new Set(posts.map((post) => post.category).filter((category) => !!category));
+    const navigationData = [...categories].map((category) => {
+        return [category, posts.filter((post) => post.category === category).map(({name, articleId}) => ({name, articleId}))];
+    });
+
+    // const articlesData = getAllPosts().filter(({category, name}) => !!category && !!name) as Array<{name: string; category: string}>;
+    // // const categories = new Set<string>(articlesData.map(({category}) => category));
+    // const navigationData: Array<Array<string | Array<{name: string; category: string}>>> = [...categories].map((category) => [category, articlesData.filter((article) => article.category === category)]);
+
     return (
         <html lang="ru">
             <head>
@@ -66,7 +77,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             <body className={`${roboto.className}`}>
                 <div className="container">
                     <main className="main">
-                        <NavigationComponent />
+                        <NavigationComponent navigationData={navigationData} />
                         <ContentComponent>{children}</ContentComponent>
                     </main>
                 </div>

@@ -1,5 +1,11 @@
+import Link from "next/link";
 import styles from "./style.module.scss";
+import {LinkConfig} from "@/app/configs/LinkConfig";
 
 export const LogoComponent = () => {
-    return <div className={styles.logo}>Frontend-content</div>;
+    return (
+        <div className={styles.logo}>
+            <Link href={LinkConfig.main}>Frontend-content</Link>
+        </div>
+    );
 };

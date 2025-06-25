@@ -54,3 +54,21 @@
         }
     }
 }
+
+.show {
+    padding: 0 16px;
+    overflow: hidden;
+    max-height: 100vh;
+    transition:
+        overflow,
+        max-height 0.2s ease-in-out;
+}
+
+.hide {
+    padding: 0 16px;
+    overflow: hidden;
+    max-height: 0;
+    transition:
+        overflow,
+        max-height 0.2s ease-out;
+}

@@ -22,4 +22,5 @@ export enum LinkConfig {
     facade = "/articles/facade",
     flyweight = "/articles/flyweight",
     proxy = "/articles/proxy",
+    main = "/",
 }

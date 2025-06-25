@@ -1,24 +1,21 @@
 import Link from "next/link";
 import styles from "./style.module.scss";
 import classNames from "classnames";
-import {LinkConfig} from "@/app/configs/LinkConfig";
+import {useActiveLinkStore} from "@/store/navigation/useActiveLinkStore";
 
 export type SimpleNavigationItemType = {
-    path: keyof typeof LinkConfig;
+    url: string;
+    isActive: boolean;
     text: string;
-    active: boolean;
-    cb: (value: string) => void;
-    id: string;
 };
 
-export const SimpleNavigationItem = (props: SimpleNavigationItemType) => {
-    const handleActive = () => props.cb(props.id);
-    const textClass = classNames(styles.text, props.active && styles.active);
-    const {path, text} = props;
-    const url = LinkConfig[path];
+export const SimpleNavigationItem = ({url, isActive, text}: SimpleNavigationItemType) => {
+    const setActiveLink = useActiveLinkStore((state) => state.setActiveLink);
+    const handleClick = (): void => setActiveLink(url);
+    const textClass = classNames(styles.text, isActive && styles.active);
 
     return (
-        <Link onClick={handleActive} className={textClass} href={url}>
+        <Link onClick={handleClick} className={textClass} href={url}>
             {text}
         </Link>
     );

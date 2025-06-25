@@ -1,37 +1,31 @@
 "use client";
 
 import styles from "./style.module.scss";
-import data from "./navigationData";
 import {NavigationItemComponent} from "../navigationItem/NavigationItem";
 import {SimpleNavigationItem} from "../simpleNavigationItem/SimpleNavigationItem";
-import {useState} from "react";
 import NavigationTitleComponent from "../navigationTitle/NavigationTitleComponent";
 import {LogoComponent} from "../logo/LogoComponent";
+import {useActiveLinkStore} from "@/store/navigation/useActiveLinkStore";
+import {LinkConfig} from "@/app/configs/LinkConfig";
 
-export const NavigationComponent = () => {
-    const [activeIds, setActiveIds] = useState<Array<string>>([]);
-    const [activeLinkId, setActiveLinkId] = useState("");
+type NavigationComponentType = {
+    navigationData: Array<[string, Array<{name: string; articleId: string}>]>;
+};
 
-    const handleActive = (value: Array<string>) => {
-        setActiveIds(value);
-    };
-    const handleActiveLink = (value: string) => {
-        setActiveLinkId(value);
-    };
+export const NavigationComponent = (props: NavigationComponentType) => {
+    const activeLink = useActiveLinkStore((state) => state.activeLink);
+    const items = props.navigationData.map((dataItem, itemId) => {
+        const [category, categoryData] = dataItem;
+        const subItems = categoryData.map(({name, articleId}, subItemId) => {
+            const url = LinkConfig[articleId as keyof typeof LinkConfig];
 
-    const navigationItems = data.map(({category, id, patterns}) => {
-        const items = patterns.map(({category, name, id}: {category: any; name: any; id: any}) => (
-            <li className={styles.item} key={id}>
-                <SimpleNavigationItem active={id === activeLinkId} path={category} text={name} id={id} cb={handleActiveLink} />
-            </li>
-        ));
-        const ulClass = styles[activeIds.includes(id) ? "show" : "hide"];
+            return <SimpleNavigationItem key={subItemId} isActive={url === activeLink} url={url} text={name} />;
+        });
 
         return (
-            <li className={styles.item} key={id}>
-                <NavigationItemComponent id={id} cb={handleActive} text={category} activeIds={activeIds} />
-                <ul className={ulClass}>{items}</ul>
-            </li>
+            <NavigationItemComponent key={itemId} text={category}>
+                {subItems}
+            </NavigationItemComponent>
         );
     });
 
@@ -39,7 +33,7 @@ export const NavigationComponent = () => {
         <nav className={styles.main}>
             <LogoComponent />
             <NavigationTitleComponent title={"Паттерны"} />
-            <ul>{navigationItems}</ul>
+            <ul>{items}</ul>
         </nav>
     );
 };

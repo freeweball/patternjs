@@ -1,6 +1,7 @@
 ---
-title: "Привет мир!"
-date: "2025-06-10"
+category: "Порождающие"
+name: "Одиночка"
+articleId: "singleton"
 ---
 
 # Паттерн Singleton (Одиночка)
