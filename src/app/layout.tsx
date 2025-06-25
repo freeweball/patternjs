@@ -1,10 +1,8 @@
-// app/layout.tsx или app/layout.js
 import {Roboto} from "next/font/google";
 import "./globals.scss";
 import {NavigationComponent} from "./components/client/navigation/NavigationComponent";
 import {ContentComponent} from "./components/client/content/ContentComponent";
 import {getAllPosts} from "@/lib/articles";
-// import navigationData from "./components/client/navigation/navigationData";
 
 const roboto = Roboto({
     weight: ["400", "500", "700"],
@@ -24,10 +22,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     const navigationData = [...categories].map((category) => {
         return [category, posts.filter((post) => post.category === category).map(({name, articleId}) => ({name, articleId}))];
     }) as Array<[string, Array<{name: string; articleId: string}>]>;
-
-    // const articlesData = getAllPosts().filter(({category, name}) => !!category && !!name) as Array<{name: string; category: string}>;
-    // // const categories = new Set<string>(articlesData.map(({category}) => category));
-    // const navigationData: Array<Array<string | Array<{name: string; category: string}>>> = [...categories].map((category) => [category, articlesData.filter((article) => article.category === category)]);
 
     return (
         <html lang="ru">
