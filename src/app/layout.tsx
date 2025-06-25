@@ -23,7 +23,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     const categories = new Set(posts.map((post) => post.category).filter((category) => !!category));
     const navigationData = [...categories].map((category) => {
         return [category, posts.filter((post) => post.category === category).map(({name, articleId}) => ({name, articleId}))];
-    });
+    }) as Array<[string, Array<{name: string; articleId: string}>]>;
 
     // const articlesData = getAllPosts().filter(({category, name}) => !!category && !!name) as Array<{name: string; category: string}>;
     // // const categories = new Set<string>(articlesData.map(({category}) => category));
