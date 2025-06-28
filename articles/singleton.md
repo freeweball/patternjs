@@ -2,6 +2,25 @@
 category: "Порождающие"
 name: "Одиночка"
 articleId: "singleton"
+keywords:
+    [
+        "паттерн одиночка",
+        "singleton",
+        "синглтон",
+        "singleton pattern",
+        "паттерны проектирования",
+        "порождающие паттерны",
+        "дизайн паттерны",
+        "шаблоны проектирования",
+        "javascript паттерны",
+        "шаблон одиночка",
+        "одиночка javascript",
+        "singleton javascript",
+        "javascript singleton pattern",
+        "пример паттерна одиночка",
+        "пример singleton",
+        "один экземпляр класса",
+    ]
 ---
 
 # Паттерн Singleton (Одиночка)
