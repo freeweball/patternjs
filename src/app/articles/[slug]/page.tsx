@@ -9,8 +9,8 @@ export async function generateStaticParams(): Promise<Array<{slug: string}>> {
     return posts.map((post) => ({slug: post.slug}));
 }
 
-export async function generateMetadata({params}: {params: {slug: string}}): Promise<Metadata> {
-    // const {params} = await props;
+export async function generateMetadata(props: any): Promise<Metadata> {
+    const {params} = await props;
     const {slug} = await params;
     const post: Post | null = await getPostBySlug(slug).catch(() => null);
 
