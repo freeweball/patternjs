@@ -1,16 +1,26 @@
-.content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  width: 100%;
-  padding: 24px;
-}
+@use "../../../syles/variables";
 
-.main {
-    width: 100%;
+.content {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
-    padding: 24px;
+
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
 
     background-color: #fff;
     border-radius: 6px;
+    box-shadow: 0 1px 1px #22303e14;
+}
+
+.main {
+    flex-grow: 1;
+    padding: 24px;
+
+    width: 100%;
+
+    @media (max-width: variables.$tablet-width) {
+        padding: 5px;
+    }
 }

@@ -3,6 +3,9 @@ import "./globals.scss";
 import {NavigationComponent} from "./components/client/navigation/NavigationComponent";
 import {ContentComponent} from "./components/client/content/ContentComponent";
 import {getAllPosts} from "@/lib/articles";
+import {LogoComponent} from "./components/client/logo/LogoComponent";
+import BurgerComponent from "./components/client/burger/BurgerComponent";
+import HeaderComponent from "./components/client/header/HeaderComponent";
 
 const roboto = Roboto({
     weight: ["400", "500", "700"],
@@ -18,9 +21,16 @@ export const metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
     const posts = getAllPosts();
-    const categories = new Set(posts.map((post) => post.category).filter((category) => !!category));
+    const categories = new Set(
+        posts.map((post) => post.category).filter((category) => !!category),
+    );
     const navigationData = [...categories].map((category) => {
-        return [category, posts.filter((post) => post.category === category).map(({name, articleId}) => ({name, articleId}))];
+        return [
+            category,
+            posts
+                .filter((post) => post.category === category)
+                .map(({name, articleId}) => ({name, articleId})),
+        ];
     }) as Array<[string, Array<{name: string; articleId: string}>]>;
 
     return (
@@ -58,18 +68,32 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
                 />
                 <noscript>
                     <div>
-                        <img src="https://mc.yandex.ru/watch/102904890" style={{position: "absolute", left: "-9999px"}} alt="" />
+                        <img
+                            src="https://mc.yandex.ru/watch/102904890"
+                            style={{position: "absolute", left: "-9999px"}}
+                            alt=""
+                        />
                     </div>
                 </noscript>
 
                 {/* Другие мета-теги и ссылки */}
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
                 <meta name="theme-color" content="#ffffff" />
                 <link rel="icon" href="/favicon.ico" />
-                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
+                <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+                />
             </head>
             <body className={`${roboto.className}`}>
                 <div className="container">
+                    <HeaderComponent>
+                        <LogoComponent />
+                        <BurgerComponent />
+                    </HeaderComponent>
                     <main className="main">
                         <NavigationComponent navigationData={navigationData} />
                         <ContentComponent>{children}</ContentComponent>

@@ -9,7 +9,11 @@ export type SimpleNavigationItemType = {
     text: string;
 };
 
-export const SimpleNavigationItem = ({url, isActive, text}: SimpleNavigationItemType) => {
+export const SimpleNavigationItem = ({
+    url,
+    isActive,
+    text,
+}: SimpleNavigationItemType) => {
     const setActiveLink = useActiveLinkStore((state) => state.setActiveLink);
     const handleClick = (): void => setActiveLink(url);
     const textClass = classNames(styles.text, isActive && styles.active);

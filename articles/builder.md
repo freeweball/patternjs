@@ -49,17 +49,25 @@ keywords:
 ```javascript
 class Pizza {
     constructor() {
-        this.size = null; // Размер (small, medium, large)
-        this.crust = null; // Тесто (thin, thick, cheese-filled)
-        this.cheese = false; // Сыр (да/нет)
-        this.pepperoni = false; // Пепперони
-        this.mushrooms = false; // Грибы
-        this.onions = false; // Лук
+        // Размер (small, medium, large)
+        this.size = null;
+        // Тесто (thin, thick, cheese-filled)
+        this.crust = null;
+        // Сыр (да/нет)
+        this.cheese = false;
+        // Пепперони
+        this.pepperoni = false;
+        // Грибы
+        this.mushrooms = false;
+        // Лук
+        this.onions = false;
     }
 
     describe() {
         console.log(`Пицца: ${this.size}, тесто: ${this.crust}`);
-        console.log(`Добавки: ${this.cheese ? "сыр" : ""} ${this.pepperoni ? "пепперони" : ""} ${this.mushrooms ? "грибы" : ""} ${this.onions ? "лук" : ""}`);
+        console.log(
+            `Добавки: ${this.cheese ? "сыр" : ""} ${this.pepperoni ? "пепперони" : ""} ${this.mushrooms ? "грибы" : ""} ${this.onions ? "лук" : ""}`,
+        );
     }
 }
 ```
@@ -74,7 +82,8 @@ class PizzaBuilder {
 
     setSize(size) {
         this.pizza.size = size;
-        return this; // Возвращаем this для чейнинга
+        // Возвращаем this для чейнинга
+        return this;
     }
 
     setCrust(crust) {
@@ -103,7 +112,8 @@ class PizzaBuilder {
     }
 
     build() {
-        return this.pizza; // Возвращаем готовую пиццу
+        // Возвращаем готовую пиццу
+        return this.pizza;
     }
 }
 ```
@@ -115,7 +125,13 @@ class PizzaBuilder {
 const builder = new PizzaBuilder();
 
 // Строим пиццу шаг за шагом
-const myPizza = builder.setSize("large").setCrust("thin").addCheese().addPepperoni().addMushrooms().build();
+builder
+    .setSize("large")
+    .setCrust("thin")
+    .addCheese()
+    .addPepperoni()
+    .addMushrooms()
+    .build();
 
 // Выводим описание пиццы
 myPizza.describe();

@@ -1,3 +1,5 @@
+@use "./syles/variables";
+
 html,
 body {
     max-width: 100vw;
@@ -20,6 +22,10 @@ body {
 
 .container {
     margin: 0 24px;
+
+    @media (max-width: variables.$tablet-width) {
+        margin: 0 5px;
+    }
 }
 
 ul {
@@ -37,4 +43,10 @@ a {
     width: 100%;
     min-height: 100vh;
     display: flex;
+}
+
+.markdown-body {
+    .token {
+        white-space: pre-wrap;
+    }
 }
