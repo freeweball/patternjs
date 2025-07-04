@@ -8,6 +8,8 @@ export interface PostMeta {
     articleId?: string;
     slug: string;
     keywords?: Array<string>;
+    title?: string;
+    description?: string;
 }
 
 export interface Post extends PostMeta {
@@ -54,13 +56,15 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     const fileContents = fs.readFileSync(fullPath, "utf-8");
     // Разделяем мета-данные и контент
     const {data, content} = matter(fileContents);
-    const {name, category, keywords} = data;
+    const {name, category, keywords, title, description} = data;
     // const {content} = matter(fileContents);
 
     return {
         slug,
         content,
         name,
+        title,
+        description,
         category,
         keywords,
     };

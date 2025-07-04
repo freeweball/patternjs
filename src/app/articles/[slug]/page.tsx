@@ -1,3 +1,4 @@
+import {LinkConfig} from "@/app/configs/LinkConfig";
 import MarkdownRenderer from "@/app/utils/MarkdownRenderer";
 import {getPostBySlug, getAllPosts, Post} from "@/lib/articles";
 import {Metadata} from "next";
@@ -35,7 +36,10 @@ export default async function PostPage(props: any) {
 
     return (
         <article>
-            <MarkdownRenderer markdownContent={post.content} />
+            <MarkdownRenderer
+                markdownContent={post.content}
+                variables={LinkConfig}
+            />
         </article>
     );
 }

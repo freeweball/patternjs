@@ -1,16 +1,21 @@
-// 1. Импортируем основной компонент для рендеринга Markdown
 import ReactMarkdown from "react-markdown";
-
-// 2. Импортируем компонент для подсветки синтаксиса (Prism - это движок подсветки)
 import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
-
-// 3. Импортируем конкретную цветовую схему 'tomorrow' для подсветки
 import {materialLight} from "react-syntax-highlighter/dist/cjs/styles/prism";
-// Стили для оформления текста markdown
 import "github-markdown-css/github-markdown-light.css";
 
-// 4. Создаем компонент MarkdownRenderer, который принимает markdownContent как пропс
-export default function MarkdownRenderer({markdownContent}) {
+function injectVariables(markdown, vars) {
+    return markdown.replace(/\{\{(\w+)\}\}/g, (_, key) => vars[key] ?? "");
+}
+
+/**
+ *
+ * @param {markdownContent, variables} any
+ * @returns any
+ */
+
+export default function MarkdownRenderer({markdownContent, variables = {}}) {
+    const content = injectVariables(markdownContent, variables);
+
     return (
         <div className="markdown-body">
             {" "}
@@ -46,7 +51,7 @@ export default function MarkdownRenderer({markdownContent}) {
                 }}
             >
                 {/* 17. Передаем markdown-контент, который нужно отрендерить */}
-                {markdownContent}
+                {content}
             </ReactMarkdown>
         </div>
     );

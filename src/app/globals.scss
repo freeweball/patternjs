@@ -29,7 +29,6 @@ body {
 }
 
 ul {
-    list-style: none;
     margin: 0;
     padding: 0;
 }
@@ -43,10 +42,19 @@ a {
     width: 100%;
     min-height: 100vh;
     display: flex;
-}
 
-.markdown-body {
-    .token {
-        white-space: pre-wrap;
+    .markdown-body {
+        .token {
+            white-space: pre-wrap;
+        }
+
+        p,
+        ul {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    nav ul {
+        list-style: none;
     }
 }
