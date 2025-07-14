@@ -1,9 +1,4 @@
-# *
 User-agent: *
-Allow: /
+Disallow: /_next/
 
-# Host
-Host: https://frontend-content.ru
-
-# Sitemaps
 Sitemap: https://frontend-content.ru/sitemap.xml
