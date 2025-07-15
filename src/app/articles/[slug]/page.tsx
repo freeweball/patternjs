@@ -22,7 +22,7 @@ export async function generateMetadata(props: any): Promise<Metadata> {
         description: `Статья о паттерне ${post.name} из категории ${post.category} паттерны`,
         keywords: post.keywords,
         alternates: {
-            canonical: `https://frontend-content.ru/articles/${slug}`,
+            canonical: `https://frontend-content.ru/articles/${slug}/`,
         },
     };
 }
