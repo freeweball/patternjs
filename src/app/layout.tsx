@@ -6,6 +6,7 @@ import {LogoComponent} from "./components/client/logo/LogoComponent";
 import BurgerComponent from "./components/client/burger/BurgerComponent";
 import HeaderComponent from "./components/client/header/HeaderComponent";
 import {NavigationData} from "./configs/NavigationConfig";
+import Script from "next/script";
 
 const roboto = Roboto({
     weight: ["400", "500", "700"],
@@ -24,19 +25,20 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <html lang="ru">
             <head>
                 {/* Скрипт Яндекс.Метрики */}
-                <script
-                    type="text/javascript"
+                <Script
+                    id="yandex-metrica"
+                    strategy="afterInteractive"
                     dangerouslySetInnerHTML={{
                         __html: `
                             (function(m,e,t,r,i,k,a){
                                 m[i]=m[i]||function(){
-                                    (m[i].a=m[i].a||[]).push(arguments)
+                                (m[i].a=m[i].a||[]).push(arguments)
                                 };
                                 m[i].l=1*new Date();
                                 for (var j = 0; j < document.scripts.length; j++) {
-                                    if (document.scripts[j].src === r) {
-                                        return;
-                                    }
+                                if (document.scripts[j].src === r) {
+                                    return;
+                                }
                                 }
                                 k=e.createElement(t),
                                 a=e.getElementsByTagName(t)[0];
@@ -67,10 +69,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="theme-color" content="#ffffff" />
                 <link rel="icon" href="/favicon.ico" />
-                <link
-                    rel="stylesheet"
-                    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-                />
             </head>
             <body className={`${roboto.className}`}>
                 <div className="container">

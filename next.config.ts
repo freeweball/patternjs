@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     basePath: '',
     trailingSlash: true,
     reactStrictMode: true,
+    productionBrowserSourceMaps: true,
 };
 
 export default nextConfig;
