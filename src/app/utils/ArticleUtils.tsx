@@ -8,7 +8,7 @@ export const getArticlePageConfig = (basePath: string) => ({
         return getSlugsFromPath(basePath).map((article) => ({slug: article.slug}));
     },
 
-    generateMetadata: async (props: {params: {slug: string}}) => {
+    generateMetadata: async (props: any) => {
         const params = await props.params;
         const slug = basePath === "" ? "index" : await params.slug;
         const {title, description, keywords} = await getArticleByPath(`${basePath}/${slug}`);
@@ -23,7 +23,7 @@ export const getArticlePageConfig = (basePath: string) => ({
         };
     },
 
-    Page: async function (props: {params: {slug: string}}) {
+    Page: async function (props: any) {
         const params = await props.params;
         const slug = basePath === "" ? "index" : await params.slug;
         const {content} = await getArticleByPath(`${basePath}/${slug}`);
