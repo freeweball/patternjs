@@ -14,19 +14,14 @@ export const NavigationItemComponent = (props: NavigationItemType) => {
     const handleClick = () => {
         setIsActive(!isActive);
     };
-    const textClass = classNames(
-        styles["text"],
-        isActive ? styles["active"] : styles[""],
-    );
+    const textClass = classNames(styles["text"], isActive ? styles["active"] : styles[""]);
 
     return (
         <li className={styles.item}>
             <div className={textClass} onClick={handleClick}>
                 {props.text}
             </div>
-            <ul className={isActive ? styles.show : styles.hide}>
-                {props.children}
-            </ul>
+            <ul className={isActive ? styles.show : styles.hide}>{props.children}</ul>
         </li>
     );
 };

@@ -5,7 +5,7 @@ import {LinkConfig} from "@/app/configs/LinkConfig";
 export const LogoComponent = () => {
     return (
         <div className={styles.logo}>
-            <Link href={LinkConfig.main}>Frontend-content</Link>
+            <Link href={LinkConfig.index}>Frontend-content</Link>
         </div>
     );
 };

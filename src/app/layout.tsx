@@ -2,10 +2,10 @@ import {Roboto} from "next/font/google";
 import "./globals.scss";
 import {NavigationComponent} from "./components/client/navigation/NavigationComponent";
 import {ContentComponent} from "./components/client/content/ContentComponent";
-import {getAllPosts} from "@/lib/articles";
 import {LogoComponent} from "./components/client/logo/LogoComponent";
 import BurgerComponent from "./components/client/burger/BurgerComponent";
 import HeaderComponent from "./components/client/header/HeaderComponent";
+import {NavigationData} from "./configs/NavigationConfig";
 
 const roboto = Roboto({
     weight: ["400", "500", "700"],
@@ -20,19 +20,6 @@ export const metadata = {
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
-    const posts = getAllPosts();
-    const categories = new Set(
-        posts.map((post) => post.category).filter((category) => !!category),
-    );
-    const navigationData = [...categories].map((category) => {
-        return [
-            category,
-            posts
-                .filter((post) => post.category === category)
-                .map(({name, articleId}) => ({name, articleId})),
-        ];
-    }) as Array<[string, Array<{name: string; articleId: string}>]>;
-
     return (
         <html lang="ru">
             <head>
@@ -77,10 +64,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
                 </noscript>
 
                 {/* Другие мета-теги и ссылки */}
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="theme-color" content="#ffffff" />
                 <link rel="icon" href="/favicon.ico" />
                 <link
@@ -95,7 +79,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
                         <BurgerComponent />
                     </HeaderComponent>
                     <main className="main">
-                        <NavigationComponent navigationData={navigationData} />
+                        <NavigationComponent data={NavigationData} />
                         <ContentComponent>{children}</ContentComponent>
                     </main>
                 </div>

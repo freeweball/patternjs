@@ -10,16 +10,10 @@ export type SimpleNavigationItemType = {
     text: string;
 };
 
-export const SimpleNavigationItem = ({
-    url,
-    isActive,
-    text,
-}: SimpleNavigationItemType) => {
+export const SimpleNavigationItem = ({url, isActive, text}: SimpleNavigationItemType) => {
     const setActiveLink = useActiveLinkStore((state) => state.setActiveLink);
     const activeBurger = useActiveBurgerStore((state) => state.activeBurger);
-    const setActiveBurger = useActiveBurgerStore(
-        (state) => state.setActiveBurger,
-    );
+    const setActiveBurger = useActiveBurgerStore((state) => state.setActiveBurger);
     const handleClick = (): void => {
         setActiveLink(url);
         setActiveBurger(!activeBurger);
