@@ -1,18 +1,14 @@
 ---
-category: "Поведенческие"
-name: "Посетитель"
-articleId: "visitor"
+title: "Паттерн Посетитель (Visitor) — операции над элементами объектов на JavaScript"
+description: "Паттерн Посетитель позволяет определить новую операцию, не изменяя классы элементов, над которыми она выполняется. Примеры на JavaScript."
 keywords:
     [
         "паттерн посетитель",
         "visitor pattern",
-        "паттерны проектирования",
-        "поведенческие паттерны",
-        "шаблон проектирования посетитель",
-        "javascript visitor",
-        "пример паттерна посетитель",
-        "использование посетителя",
-        "что такое паттерн посетитель",
+        "javascript паттерны",
+        "операции над объектами",
+        "проектирование ПО",
+        "visitor javascript пример",
     ]
 ---
 
@@ -87,11 +83,7 @@ class CountVisitor extends Visitor {
 }
 
 // Использование
-const elements = [
-    new TextElement("Привет"),
-    new ImageElement("image1.png"),
-    new TextElement("Мир"),
-];
+const elements = [new TextElement("Привет"), new ImageElement("image1.png"), new TextElement("Мир")];
 
 const visitor = new CountVisitor();
 

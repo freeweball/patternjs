@@ -1,20 +1,14 @@
 ---
-category: "Структурные"
-name: "Мост"
-articleId: "bridge"
+title: "Паттерн Мост (Bridge) — разбор и примеры на JavaScript"
+description: "Паттерн Мост помогает разделить абстракцию и реализацию, позволяя изменять их независимо. Примеры на JavaScript и объяснения."
 keywords:
     [
         "паттерн мост",
         "bridge pattern",
-        "паттерны проектирования",
-        "структурные паттерны",
-        "шаблон проектирования мост",
-        "bridge javascript",
-        "javascript bridge pattern",
-        "пример паттерна мост",
-        "использование паттерна мост",
-        "преимущества паттерна мост",
-        "что такое паттерн мост",
+        "javascript паттерны",
+        "разделение абстракции и реализации",
+        "проектирование ПО",
+        "bridge javascript пример",
     ]
 ---
 
@@ -55,18 +49,14 @@ class DrawingAPI {
 // Конкретная реализация 1
 class DrawingAPI1 extends DrawingAPI {
     drawCircle(x, y, radius) {
-        console.log(
-            `Рисуем круг с помощью DrawingAPI1 в (${x}, ${y}) с радиусом ${radius}`,
-        );
+        console.log(`Рисуем круг с помощью DrawingAPI1 в (${x}, ${y}) с радиусом ${radius}`);
     }
 }
 
 // Конкретная реализация 2
 class DrawingAPI2 extends DrawingAPI {
     drawCircle(x, y, radius) {
-        console.log(
-            `Рисуем круг с помощью DrawingAPI2 в (${x}, ${y}) с радиусом ${radius}`,
-        );
+        console.log(`Рисуем круг с помощью DrawingAPI2 в (${x}, ${y}) с радиусом ${radius}`);
     }
 }
 
