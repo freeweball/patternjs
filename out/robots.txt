@@ -1,16 +1,9 @@
-# Разрешаем Яндекс.Метрике
-User-agent: Yandex
-Allow: /
-
-# Разрешаем всем остальным поисковикам индексировать сайт
+# *
 User-agent: *
 Allow: /
 
-# Запрещаем индексацию административных страниц или страниц с чувствительным контентом (например, админки)
-Disallow: /admin/
-Disallow: /login/
+# Host
+Host: https://frontend-content.ru
 
-# Блокируем страницы, которые не стоит индексировать (например, динамичные страницы с параметрами)
-Disallow: /*?*
-
+# Sitemaps
 Sitemap: https://frontend-content.ru/sitemap.xml
