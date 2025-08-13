@@ -21,8 +21,10 @@ export const SimpleNavigationItem = ({url, isActive, text}: SimpleNavigationItem
     const textClass = classNames(styles.text, isActive && styles.active);
 
     return (
-        <Link onClick={handleClick} className={textClass} href={url}>
-            {text}
-        </Link>
+        <li>
+            <Link onClick={handleClick} className={textClass} href={url}>
+                {text}
+            </Link>
+        </li>
     );
 };

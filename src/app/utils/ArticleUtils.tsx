@@ -28,7 +28,9 @@ export const getArticlePageConfig = (basePath: string) => ({
         const slug = basePath === "" ? "index" : await params.slug;
         const {content} = await getArticleByPath(`${basePath}/${slug}`);
 
-        if (!content) return notFound();
+        if (!content) {
+            return notFound();
+        }
 
         return (
             <article>
