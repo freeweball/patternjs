@@ -12,13 +12,14 @@ export const getArticlePageConfig = (basePath: string) => ({
         const params = await props.params;
         const slug = basePath === "" ? "index" : await params.slug;
         const {title, description, keywords} = await getArticleByPath(`${basePath}/${slug}`);
+        const canonicalPath = slug === "index" ? "" : `${basePath}/${slug}`;
 
         return {
             title,
             description,
             keywords,
             alternates: {
-                canonical: `${LinkConfig.siteUrl}${basePath}/${slug}/`,
+                canonical: `${LinkConfig.siteUrl}${canonicalPath}`,
             },
         };
     },
