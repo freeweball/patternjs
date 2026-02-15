@@ -71,7 +71,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
                 <link rel="icon" href="/favicon.ico" />
             </head>
             <body className={`${roboto.className}`}>
-                <span></span>
                 <div className="container">
                     <HeaderComponent>
                         <LogoComponent />
