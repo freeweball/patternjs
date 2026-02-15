@@ -9,14 +9,14 @@
     margin-right: 10px;
     margin-left: 0;
 
-    color: #22303e;
+    color: var(--text-primary, #22303e);
     font-size: 15px;
     line-height: 22px;
 
-    background-color: #fff;
-    box-shadow: 0 1px 1px #22303e14;
+    background-color: var(--bg-container, #fff);
+    box-shadow: 0 1px 1px var(--shadow-color, #22303e14);
     border-radius: 6px;
-    transition: 0.2s;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, margin-left 0.2s;
 }
 
 .item {

@@ -9,9 +9,10 @@
     padding: 5px;
     margin-top: 5px;
 
-    background-color: #fff;
+    background-color: var(--bg-container, #fff);
     border-radius: 6px;
-    box-shadow: 0 1px 1px #22303e14;
+    box-shadow: 0 1px 1px var(--shadow-color, #22303e14);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .main {
@@ -19,8 +20,42 @@
     padding: 24px;
 
     width: 100%;
+    background-color: var(--bg-container);
+    border-radius: 4px;
+    transition: background-color 0.3s;
 
-    @media (max-width: variables.$tablet-width) {
+    @media (max-width: 765px) {
         padding: 5px;
+    }
+}
+
+// Специфичные стили для хакерской темы
+:global([data-hacker-theme="true"]) {
+    .content {
+        border: 1px solid var(--border-color, #00ff00);
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    }
+
+    .main {
+        border: 1px dashed var(--border-color, #00ff00);
+    }
+}
+
+// Специфичные стили для светлой темы
+:global([data-theme="light"]) {
+    .content {
+        box-shadow: 0 2px 4px var(--shadow-color, rgba(0, 0, 0, 0.1));
+    }
+}
+
+// Адаптация для мобильных устройств
+@media (max-width: 765px) {
+    .content {
+        padding: 3px;
+        margin-top: 3px;
+    }
+
+    .main {
+        padding: 10px;
     }
 }

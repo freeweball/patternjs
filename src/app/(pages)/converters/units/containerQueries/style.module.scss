@@ -1,0 +1,276 @@
+/* Основной контейнер */
+.main {
+    // max-width: 1200px;
+    margin: 0 auto;
+    // padding: 2rem 1rem;
+    // background-color: var(--bg-body); /* Используем переменную темы */
+    transition: background-color 0.3s;
+}
+
+/* Секция с конвертером */
+.converterSection {
+    margin-bottom: 4rem;
+}
+
+/* SEO-контент - использует переменные темы */
+.seoContent {
+    // max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--bg-container); /* Используем цвет контейнера из темы */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.seoTitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.seoSection {
+    margin-bottom: 2.5rem;
+}
+
+.seoSection h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    border-left: 4px solid var(--accent-blue);
+    padding-left: 1rem;
+}
+
+.seoSection h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.seoSection p {
+    line-height: 1.7;
+    color: var(--text-label);
+    margin-bottom: 1rem;
+}
+
+.seoList, .browserList, .linksList {
+    padding-left: 1.5rem;
+    color: var(--text-label);
+    line-height: 1.7;
+}
+
+.seoList li, .browserList li, .linksList li {
+    margin-bottom: 0.5rem;
+    color: var(--text-label);
+}
+
+.seoList li strong, .browserList li strong {
+    color: var(--text-primary);
+}
+
+/* Блок с кодом */
+.codeBlock {
+    background: var(--bg-box);
+    color: var(--text-value);
+    padding: 1.25rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 1.5rem 0;
+    border: 1px solid var(--border-color);
+}
+
+/* Сетка преимуществ */
+.benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.benefitItem {
+    background: var(--bg-box);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-blue);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.benefitItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.benefitItem h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.benefitItem p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-label);
+}
+
+/* FAQ */
+.faqItem {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background: var(--bg-box);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.faqItem h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    color: var(--accent-blue);
+}
+
+.faqItem p {
+    margin: 0;
+    color: var(--text-label);
+}
+
+/* Заметка */
+.note {
+    font-size: 0.9rem;
+    color: var(--text-label);
+    font-style: italic;
+    padding: 0.75rem;
+    background: var(--hint-bg);
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-green);
+}
+
+/* Ссылки */
+.linksList {
+    list-style: none;
+    padding: 0;
+}
+
+.linksList li {
+    margin-bottom: 0.75rem;
+}
+
+.linksList a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.linksList a:hover {
+    border-bottom-color: var(--accent-blue);
+}
+
+/* Список браузеров */
+.browserList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+}
+
+.browserList li {
+    background: var(--badge-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-align: center;
+    color: var(--badge-text);
+    border: 1px solid var(--border-color);
+}
+
+/* Специфичные стили для хакерской темы */
+:global([data-hacker-theme="true"]) .seoContent {
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0, 255, 0, 0.2);
+}
+
+:global([data-hacker-theme="true"]) .codeBlock {
+    background: #000;
+    color: #0f0;
+    border-color: #0f0;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+:global([data-hacker-theme="true"]) .benefitItem {
+    border-color: var(--border-color);
+}
+
+:global([data-hacker-theme="true"]) .benefitItem:hover {
+    box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3);
+}
+
+:global([data-hacker-theme="true"]) .faqItem h3 {
+    color: #0f0;
+}
+
+:global([data-hacker-theme="true"]) .note {
+    background: #1a1a1a;
+    border-left-color: #0f0;
+}
+
+:global([data-hacker-theme="true"]) .browserList li {
+    background: #0a0a0a;
+    border-color: #0f0;
+    color: #0f0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .main {
+        padding: 1rem;
+    }
+
+    .seoContent {
+        padding: 1.5rem;
+    }
+
+    .seoTitle {
+        font-size: 1.5rem;
+    }
+
+    .seoSection h2 {
+        font-size: 1.25rem;
+    }
+
+    .benefitsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .browserList {
+        grid-template-columns: 1fr;
+    }
+
+    .browserList li {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .seoContent {
+        padding: 1rem;
+    }
+
+    .seoTitle {
+        font-size: 1.25rem;
+    }
+
+    .codeBlock {
+        font-size: 0.8rem;
+        padding: 1rem;
+    }
+}

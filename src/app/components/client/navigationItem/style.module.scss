@@ -1,3 +1,5 @@
+@use "../../../syles/variables";
+
 .text {
     position: relative;
 
@@ -5,13 +7,13 @@
     width: 100%;
     padding: 0 16px;
 
-    color: #22303e;
+    color: var(--text-primary, #22303e);
     font-size: 15px;
     line-height: 42px;
 
     cursor: pointer;
     border-radius: 6px;
-    transition: 0.2s;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
 
     &::after {
         content: "";
@@ -25,32 +27,38 @@
         margin-top: -11px;
 
         background-image: url("/arrow.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
         transform-origin: center;
-        transition: 0.2s;
+        transition: filter 0.2s, transform 0.2s;
+
+        // В хакерской теме стрелка будет зеленой
+        :global([data-hacker-theme="true"]) & {
+            filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+        }
     }
 
     &.active {
-        color: #fff;
+        color: var(--bg-body, #fff);
+        background-color: var(--accent-blue, #696cff);
 
         &::after {
-            filter: grayscale(1) brightness(1000%);
+            filter: brightness(0) invert(1);
             transform: rotate(90deg);
         }
 
-        background-color: rgba(105, 108, 255, 1);
-
         &:hover {
-            background-color: rgba(105, 108, 255, 0.8);
+            background-color: var(--accent-blue-hover, rgba(105, 108, 255, 0.8));
         }
     }
 
     &:hover {
-        background-color: rgba(105, 108, 255, 0.8);
-
-        color: #fff;
+        background-color: var(--accent-blue-hover, rgba(105, 108, 255, 0.8));
+        color: var(--bg-body, #fff);
 
         &::after {
-            filter: grayscale(1) brightness(1000%);
+            filter: brightness(0) invert(1);
         }
     }
 }
@@ -59,16 +67,51 @@
     padding: 0 16px;
     overflow: hidden;
     max-height: 100vh;
-    transition:
-        overflow,
-        max-height 0.2s ease-in-out;
+    transition: max-height 0.2s ease-in-out;
 }
 
 .hide {
     padding: 0 16px;
     overflow: hidden;
     max-height: 0;
-    transition:
-        overflow,
-        max-height 0.2s ease-out;
+    transition: max-height 0.2s ease-out;
+}
+
+// Адаптация для хакерской темы
+:global([data-hacker-theme="true"]) {
+    .text {
+        &::after {
+            filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+        }
+
+        &.active {
+            background-color: var(--accent-blue, #00ff00);
+
+            &::after {
+                filter: brightness(0) invert(1);
+            }
+        }
+
+        &:hover {
+            background-color: var(--accent-blue-hover, #00cc00);
+        }
+    }
+}
+
+// Адаптация для мобильных устройств
+@media (max-width: variables.$tablet-width) {
+    .text {
+        font-size: 14px;
+        line-height: 38px;
+
+        &::after {
+            width: 18px;
+            height: 18px;
+            margin-top: -9px;
+        }
+    }
+
+    .show, .hide {
+        padding: 0 12px;
+    }
 }

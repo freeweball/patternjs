@@ -1,3 +1,5 @@
+@use "../../../syles/variables";
+
 .text {
     position: relative;
 
@@ -5,9 +7,11 @@
     width: 100%;
     padding-left: 16px;
 
-    color: #22303e;
+    color: var(--text-primary, #22303e);
     font-size: 15px;
     line-height: 42px;
+
+    transition: color 0.2s;
 
     &::before {
         content: "";
@@ -20,8 +24,9 @@
         height: 10px;
 
         border-radius: 50%;
-        background-color: rgba(105, 108, 255, 0.16);
+        background-color: var(--badge-bg, rgba(105, 108, 255, 0.16));
         transform: translateY(-50%);
+        transition: background-color 0.2s;
     }
 
     &::after {
@@ -35,15 +40,73 @@
         height: 6px;
 
         border-radius: 50%;
-        background-color: rgba(105, 108, 255, 1);
+        background-color: var(--accent-blue, #696cff);
         transform: translateY(-50%);
         opacity: 0;
-        transition: 0.2s;
+        transition: opacity 0.2s, background-color 0.2s;
     }
 
     &.active {
         &::after {
             opacity: 1;
+        }
+    }
+
+    // Эффект при наведении
+    &:hover {
+        color: var(--accent-blue, #696cff);
+
+        &::before {
+            background-color: var(--accent-blue-hover, rgba(105, 108, 255, 0.3));
+        }
+    }
+}
+
+// Специфичные стили для хакерской темы
+:global([data-hacker-theme="true"]) {
+    .text {
+        &::before {
+            background-color: rgba(0, 255, 0, 0.2);
+        }
+
+        &::after {
+            background-color: #00ff00;
+            box-shadow: 0 0 5px #00ff00;
+        }
+
+        &:hover {
+            color: #00ff00;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+
+            &::before {
+                background-color: rgba(0, 255, 0, 0.3);
+            }
+        }
+
+        &.active {
+            &::after {
+                box-shadow: 0 0 8px #00ff00;
+            }
+        }
+    }
+}
+
+// Адаптация для мобильных устройств
+@media (max-width: variables.$tablet-width) {
+    .text {
+        font-size: 14px;
+        line-height: 38px;
+        padding-left: 14px;
+
+        &::before {
+            width: 8px;
+            height: 8px;
+        }
+
+        &::after {
+            width: 5px;
+            height: 5px;
+            left: 1.5px;
         }
     }
 }

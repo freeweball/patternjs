@@ -1,11 +1,15 @@
+@use "../../../syles/variables";
+
 .title {
     position: relative;
     padding: 0 32px;
 
-    color: #e1e2ff;
+    color: var(--text-label, #e1e2ff);
     font-size: 13px;
     line-height: 38px;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
 
     &::before {
         content: "";
@@ -17,6 +21,51 @@
         width: 16px;
         height: 1px;
 
-        background-color: #e1e2ff;
+        background-color: var(--border-color, #e1e2ff);
+        transition: background-color 0.2s;
+    }
+}
+
+// Специфичные стили для хакерской темы
+:global([data-hacker-theme="true"]) {
+    .title {
+        color: #00ff00;
+        text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+
+        &::before {
+            background-color: #00ff00;
+            box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+        }
+    }
+}
+
+// Адаптация для мобильных устройств
+@media (max-width: variables.$tablet-width) {
+    .title {
+        font-size: 12px;
+        line-height: 34px;
+        padding: 0 28px;
+
+        &::before {
+            width: 14px;
+        }
+    }
+}
+
+// Адаптация для темной темы (если нужно усилить контраст)
+:global([data-theme="dark"]) .title {
+    color: var(--text-label, #9ca3af);
+
+    &::before {
+        background-color: var(--border-color, #3f4450);
+    }
+}
+
+// Адаптация для светлой темы
+:global([data-theme="light"]) .title {
+    color: var(--text-label, #6b7280);
+
+    &::before {
+        background-color: var(--border-color, #e5e7eb);
     }
 }

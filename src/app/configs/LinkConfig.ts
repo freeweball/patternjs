@@ -24,4 +24,5 @@ export const LinkConfig = {
     flyweight: "/patterns/structural/flyweight/",
     proxy: "/patterns/structural/proxy/",
     index: "/",
+    containerQueries: "/converters/units/containerQueries/"
 };

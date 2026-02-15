@@ -14,3 +14,70 @@
     background-color: #fff;
     border-radius: 6px;
 }
+
+.header {
+    // position: sticky;
+    // top: 0;
+    // z-index: 100;
+    background: var(--bg-container);
+    border-bottom: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+
+    &__container {
+        position: absolute;
+        top: -13px;
+        right: 0;
+
+        width: 100%;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        flex: 0 0 auto;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-box);
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+
+    &:hover {
+        background: var(--accent-blue);
+        color: white;
+        border-color: var(--accent-blue);
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.theme-icon {
+    font-size: 1.2rem;
+}
+
+.theme-text {
+    @media (max-width: 768px) {
+        display: none;
+    }
+}

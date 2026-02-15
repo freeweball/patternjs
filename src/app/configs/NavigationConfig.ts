@@ -139,5 +139,22 @@ export const NavigationData = [
                 ],
             },
         ],
+    },
+    {
+        name: 'converters',
+        title: 'Конвертеры',
+        categories: [
+            {
+                name: 'units',
+                title: 'Единицы измерения',
+                articles: [
+                    {
+                        name: 'containerQueries',
+                        title: 'px to cqw',
+                        url: LinkConfig['containerQueries'],
+                    },
+                ],
+            },
+        ],
     }
 ];
