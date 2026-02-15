@@ -1,1 +1,0 @@
-self.__SSG_MANIFEST=new Set(["\u002Fpatterns\u002Fbehavioral\u002F[slug]","\u002Fpatterns\u002Fcreational\u002F[slug]","\u002Fpatterns\u002Fstructural\u002F[slug]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
